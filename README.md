@@ -1,26 +1,18 @@
-```markdown
 # Aircraft Tracker App
 
 This is a React Native app that allows users to track aircraft information using the ADS-B database API. The app displays a list of aircraft with their details and allows users to click on each card to see more detailed information in a modal.
 
 ## Folder Structure
-
-```plaintext
-├── .expo/                # Expo related files
+```markdown
 ├── assets/               # Images and other static files
 ├── context/              # Context for managing app state
 │   └── AuthContext.js    # Context for user authentication
-├── node_modules/         # Node.js dependencies
 ├── screens/              # Screen components
 │   ├── HomeScreen.js     # Main screen displaying aircraft list
 │   ├── LoginScreen.js    # Login screen
 │   └── RegisterScreen.js # Registration screen
-├── .gitignore            # Git ignore file
 ├── App.js                # Entry point of the app
-├── app.json              # App configuration
 ├── index.js              # App entry for expo
-├── package-lock.json     # Lock file for dependencies
-└── package.json          # Project dependencies and scripts
 ```
 
 ## Features
@@ -77,4 +69,3 @@ Contributions are welcome! If you want to contribute to this project, please for
 
 This project is licensed under the MIT License.
 
-```
