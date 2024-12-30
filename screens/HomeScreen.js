@@ -93,24 +93,24 @@ export default function HomeScreen({ route }) {
   }, []);
 
   const renderItem = ({ item }) => {
-    // Check if the image URL is valid
+    // Check if the image URL is valid and ensure it's a string
     const imageUrl = item.url_photo_thumbnail && item.url_photo_thumbnail.startsWith('http')
-      ? item.url_photo_thumbnail
-      : 'https://via.placeholder.com/300x200'; // Fallback to placeholder if invalid or missing
-  
+      ? { uri: item.url_photo_thumbnail }  // Pass as object with uri property for network images
+      : require('../assets/placeholder.png'); // Local image requires direct require
+    
     return (
       <TouchableOpacity
         style={styles.card}
         onPress={() => {
-          setSelectedAircraft(item); // Open modal with selected aircraft details
-          incrementClickCount(); // Increment the click count
+          setSelectedAircraft(item);
+          incrementClickCount();
         }}
         activeOpacity={0.7}
       >
         <Image
-          source={{ uri: imageUrl }}
+          source={imageUrl} // Pass the source directly - already formatted correctly
           style={styles.image}
-          onError={() => console.log('Error loading image for', item.registration)} // Optional error logging
+          onError={() => console.log('Error loading image for', item.registration)}
         />
         <Text style={styles.title}>{item.type || 'Unknown Aircraft'}</Text>
       </TouchableOpacity>
